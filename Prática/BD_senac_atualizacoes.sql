@@ -94,6 +94,60 @@ create table Turma(
 	foreign key(id_uc) references Uc(id_uc),
 	);
 
+create table Aluno(
+    id_aluno int identity primary key,
+    nome nvarchar(100) not null, 
+    dataNascimento Date,
+    cpf varchar(11) unique,
+    telefone varchar(20),
+    e-mail varchar (20) unique,
+    datamatricula Date not null,
+    id_endereco int,
+    foreign(id_endereco) references Endereco(id_endereco)
+    );
+
+create table A_psg(
+    id_psg int identity primary key,
+    id_aluno int,
+    foreign(id_aluno) references Aluno(id_aluno)
+    );
+
+create table A_pagador(
+    id_pagador int identity primary key,
+    valor_pago decimal,
+    status_pagamento varchar(20),
+    detalhes_pagamento varchar(150),
+    id_aluno int,
+    foreign(id_aluno) references Aluno(id_aluno)
+    );
+
+create table A_aprendiz(
+    id_aprendiz int identity primary key,
+    id_aluno int,
+    foreign(id_aluno) references Aluno(id_aluno)
+    );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
