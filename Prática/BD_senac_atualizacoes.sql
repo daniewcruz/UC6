@@ -101,7 +101,6 @@ create table Aluno(
     cpf varchar(11) unique,
     telefone varchar(20),
     e-mail varchar (20) unique,
-    datamatricula Date not null,
     id_endereco int,
     foreign(id_endereco) references Endereco(id_endereco)
     );
@@ -126,6 +125,25 @@ create table A_aprendiz(
     id_aluno int,
     foreign(id_aluno) references Aluno(id_aluno)
     );
+
+create table Matrícula(
+    id_matricula int identity primary key,
+    datamatricula Date not null,
+    id_senac int,
+    id_aluno int,
+    foreign(id_senac) references Senac(id_senac),
+    foreign(id_aluno) references Aluno(id_aluno) 
+    );
+
+
+
+
+
+
+
+
+
+
 
 
 
