@@ -126,7 +126,7 @@ create table A_aprendiz(
     foreign(id_aluno) references Aluno(id_aluno)
     );
 
-create table Matrícula(
+create table Matricula(
     id_matricula int identity primary key,
     datamatricula Date not null,
     id_senac int,
