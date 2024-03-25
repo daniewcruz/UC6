@@ -142,6 +142,12 @@ create table Matricula(
 ----inserindo dados na tabela:
 	insert into Endereco(rua, numero, complemento, cep)
 	values 
+		('rua ceu azul', '100','predio 6', '23451-330'),
+		('avenida itapetinga', '57', 'casa verde', '34566-330'),
+		
+		(' rua tal', '11','na esquina','44455-765'),
+		('avenita tal', '70', 'segundo andar', '65432-234'),
+
 		('rua a', '111', 'predio 2', '12345-678'),
 		('rua b', '222', 'predio 1 ' , '12365-432'),
 		('rua x', '100', 'Bloco A', '12345-678'),
@@ -152,7 +158,9 @@ create table Matricula(
 		('rua E', '1011', 'Sobrado Verde', '23456-789'),
 		('praça F', '1314', 'Cobertura 2', '87654-321'),
 		('avenida G', '1516', 'Casa Azul', '67890-234');
+
 	 select * from Endereco;
+
 	 DELETE FROM Endereco WHERE id_endereco = 6
 
 
@@ -163,15 +171,20 @@ create table Matricula(
 	   select * from Senac;
 
 
+	alter table funcionario
+	add salario decimal;
 
-	insert into Funcionario(nome, cpf, cargo, datanascimento, telefone, email, id_endereco)
-	values 
-		
-		 ('João Silva', '12345678920', 'Professor', '1980-05-10', '123456789', 'joao@email.com', 13),
-    ('Maria Oliveira', '98765432188', 'asg', '1975-08-20', '987654321', 'maria@email.com', 14),
-    ('Ana Souza', '45678912311', 'professor', '1990-03-15', '456123789', 'ana@email.com', 15),
-    ('Paulo Santos', '65432198722', 'porteiro', '1988-11-25', '789654123', 'paulo@email.com', 16);
+	insert into Funcionario(nome, cpf, cargo, datanascimento, telefone, email, id_endereco, salario)
+values 
+    ('João Silva', '12345678920', 'Professor', '1980-05-10', '123456789', 'joao@email.com', 13, 5000.00),
+    ('Maria Oliveira', '98765432188', 'asg', '1975-08-20', '987654321', 'maria@email.com', 14, 2500.00),
+    ('Ana Souza', '45678912311', 'professor', '1990-03-15', '456123789', 'ana@email.com', 15, 4800.00),
+    ('Paulo Santos', '65432198722', 'porteiro', '1988-11-25', '789654123', 'paulo@email.com', 16, 3000.00);
+
+	UPDATE Funcionario SET salario = 3800 WHERE id_funcionario = 15;
+
 	    select * from Funcionario;
+
 
 	insert into Contrato(id_funcionario, id_senac)
 	values (3,2),
@@ -200,6 +213,8 @@ create table Matricula(
     values ('curso a', 40, '2024-01-01', '2024-02-01'),
            ('curso b', 60, '2024-03-01', '2024-05-01');
 
+		    select * from A_psg
+
     insert into uc (nome, descricao, cargaHoraria)
     values ('uinidade curricular a', 'descrição uc a', 20),
            ('ubidade curricular b', 'descrição uc b', 30);
@@ -209,26 +224,37 @@ create table Matricula(
            (2, 2);
 
     insert into aluno (nome, dataNascimento, cpf, telefone, email, id_endereco)
-    values ('fulano', '2000-01-01', '12345678901', '987654321', 'fulano@email.com', 1),
-           ('ciclano', '1999-01-01', '98765432109', '123456789', 'ciclano@email.com', 2);
+    values ('Gpt da Silva', '2022-11-01','01010101010','901011010','gpt@gmail.com',19),
+		('Lucas rocha', '1990-02-28', '78767895461', '988223344', 'lucas@gmail.com', 20),
+	
+			('Daniel cruz', '1999-01-08','77777777777','988223455','daniel@gmail.com',17),
+			('Paulo Silva', '1965-06-09', '28777098765', '987234888', 'paulo@gmail.com',18),
+			('fulano Junior Souza', '2000-01-01', '12345678901', '987654321', 'fulano@email.com', 15),
+           ('ciclano Junior Silva', '1999-01-01', '98765432109', '123456789', 'ciclano@email.com', 16);
 
 	insert into a_psg (id_aluno)
-    values (1),
+    values (3),
            (2);
 
 	insert into a_pagador (valor_pago, status_pagamento, detalhes_pagamento, id_aluno)
-    values (100.50, 'pago', 'pagamento realizado em 2024-03-01', 1),
-       (150.75, 'pendente', 'próximo pagamento em 2024-04-01', 2);
+    values (100.50, 'pago', 'pagamento realizado em 2024-03-01', 4),
+       (150.75, 'pendente', 'próximo pagamento em 2024-04-01', 5);
 
 	insert into a_aprendiz (id_aluno)
-    values (1),
-           (2);
+    values (6),
+           (7);
 
 	insert into matricula (datamatricula, id_senac, id_aluno)
-    values ('2024-03-15', 1, 1),
-           ('2024-03-20', 2, 2);
+    values 
+			('2023-11-05', 2, 2),
+			('2023-06-05', 3, 2),
+			('2023-10-10', 2, 6),
+			('2023-03-01', 3, 7),
+			('2024-03-15', 2, 4),
+           ('2024-03-20', 3, 5);
+		   
 
-
+		   select * from Matricula
 
 	
 
